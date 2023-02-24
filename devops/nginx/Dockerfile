@@ -1,13 +1,13 @@
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/
-COPY default.conf /etc/nginx/conf.d/
+COPY ./devops/nginx/nginx.conf /etc/nginx/
+COPY ./devops/nginx/default.conf /etc/nginx/conf.d/
 
 RUN apk update && apk upgrade && apk add --no-cache bash
 
 RUN set -x ; \
-    addgroup -g 82 -S www-data ; \
-    adduser -u 82 -D -S -G www-data www-data && exit 0 ; exit 1
+    addgroup -g 1000 -S www-data ; \
+    adduser -u 1000 -D -S -G www-data www-data && exit 0 ; exit 1
 
 # Set upstream conf and remove the default conf
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
