@@ -1,34 +1,42 @@
 const path = require('path');
-const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
-const isDevelopment = process.env.NODE_ENV !== 'production'
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'none',
-    entry: {
-        app: path.join(__dirname, './assets', 'index.tsx')
-    },
-    target: 'web',
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
+    entry: "./assets/index.tsx",
+    devtool: "source-map",
+    mode: "development",
+    output: {
+        path: path.resolve(__dirname, "public/dist"),
+        filename: "main.js"
     },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: '/node_modules/'
-            }
-        ],
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            {
+                test: /\.(ts|tsx)?$/,
+                loader: "ts-loader",
+                exclude: /node_modules/
+            },
+        ]
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': JSON.stringify(dotenv.parsed),
-            'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
-        }),
-    ].filter(Boolean),
-    output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'public/dist')
-    }
+    resolve: {
+        extensions: ['.ts', '.js', '.json', ".tsx"]
+    },
+    devServer: {
+        static: path.join(__dirname, './public/dist'),
+        compress: true,
+        port: 9999,
+        open: true,
+        hot: true
+    },
+    plugins: [new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, "public/dist/index.html"),
+        template: path.resolve(__dirname, "public/dist/index.html"),
+    })]
 }
