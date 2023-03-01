@@ -34,6 +34,7 @@ services:
       - ./:/var/www/html:rw
     ports:
       - '3000:3000'
+    tty: true
     networks:
       - app-network
   db:

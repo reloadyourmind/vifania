@@ -29,11 +29,12 @@ module.exports = {
         extensions: ['.ts', '.js', '.json', ".tsx"]
     },
     devServer: {
-        static: path.join(__dirname, './public/dist'),
-        compress: true,
-        port: 9999,
-        open: true,
-        hot: true
+        compress: false,
+        host: "0.0.0.0",
+        port: 3000,
+    },
+    watchOptions: {
+        poll: 1000,
     },
     plugins: [new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, "public/dist/index.html"),
