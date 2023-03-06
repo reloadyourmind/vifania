@@ -1,0 +1,28 @@
+.ant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 120px;
+  height: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  background: #FFFFFF;
+  border: 1.5px solid #008DD2;
+  border-radius: 22px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  color: #008DD2;
+
+  transition: ease-in-out 0.5s;
+
+  &:hover,
+  &:focus,
+  &:active{
+    background: #008DD2;
+    color: #FFFFFF;
+  }
+}

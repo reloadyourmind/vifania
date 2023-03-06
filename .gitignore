@@ -5,7 +5,11 @@
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/public/dist/*
+!/public/dist/l10n/translation/*.json
+/public/dist/*.ttf
+/public/dist/*.js
+/public/dist/*.css
+/public/dist/*.html
 /var/
 /vendor/
 *.log

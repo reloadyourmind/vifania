@@ -1,0 +1,20 @@
+{
+  "App.Menu.Links.About": "О нас",
+  "App.Menu.Links.Calendar": "Календарь",
+  "App.Menu.Links.Contacts": "Контакты",
+  "App.Menu.Links.News": "Новости",
+  "App.Menu.Links.Services": "Служения",
+  "Component.Header.Btn.Donate": "Пожертвовать",
+  "Component.Header.Title": "Вифания",
+  "Component.LanguageSwitcher.Locale.Long.en": "Английский",
+  "Component.LanguageSwitcher.Locale.Long.ru": "Русский",
+  "Component.LanguageSwitcher.Locale.Short.en": "En",
+  "Component.LanguageSwitcher.Locale.Short.ru": "Ru",
+  "Errors.500": "",
+  "Page.About.Title": "О нас",
+  "Page.Calendar.Title": "Календарь",
+  "Page.Contacts.Title": "Контакты",
+  "Page.Index.Title": "Вифания",
+  "Page.News.Title": "Новости",
+  "Page.Services.Title": "Служения"
+}
