@@ -2,10 +2,37 @@
   "compilerOptions": {
     "outDir": "./public/dist",
     "target": "es5",
-    "module": "es6",
-    "jsx": "react",
-    "noImplicitAny": true,
-    "moduleResolution":"node",
-    "allowSyntheticDefaultImports": true
-  }
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "typeRoots": [
+      "/node_modules/@types",
+      "/typings/**/*",
+    ]
+  },
+  "include": [
+    "assets"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
 }
