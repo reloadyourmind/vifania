@@ -25,7 +25,6 @@ export const AppLayout = observer(() => {
 const StyledContent = styled(Layout.Content)`
     background-color: #f2f2f7;
     overflow-y: auto;
-    padding: 0 60px 20px;
 `;
 
 const StyledLayout = styled(Layout)`
