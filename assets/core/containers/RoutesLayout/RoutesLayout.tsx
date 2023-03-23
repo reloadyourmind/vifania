@@ -29,10 +29,9 @@ export const RoutesLayout = observer(() => {
     );
 });
 
-const NotFound = () => <div>Not found</div>;
-const NotAccessPage = () => <div>Not access</div>;
+const NotFound = () => <div>Not Found</div>;
+const NotAccessPage = () => <div>Not Access</div>;
 
 const StyledWrapper = styled.div`
     position: relative;
-    padding: 20px;
 `;
