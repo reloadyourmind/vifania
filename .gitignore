@@ -15,3 +15,5 @@
 *.log
 
 
+/public/dist/main.css.map
+/public/dist/main.js.map

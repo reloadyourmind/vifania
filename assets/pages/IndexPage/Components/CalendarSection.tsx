@@ -1,3 +1,4 @@
+import { Calendar } from 'assets/components/Calendar/Calendar';
 import { ContentSection } from 'assets/components/ContentSection/ContentSection';
 import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
@@ -8,7 +9,7 @@ export const CalendarSection = observer(() => {
         <ContentSection
             title={t('Page.Index.CalendarSection.Title', 'Календарь служений')}
         >
-            тут будет календарь
+            <Calendar />
         </ContentSection>
     );
 });

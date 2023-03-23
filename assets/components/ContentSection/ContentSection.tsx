@@ -39,4 +39,5 @@ const StyledTitle = styled(Typography.Title)`
     line-height: 120%;
     color: #000000;
     text-align: center;
+    margin-bottom: 40px !important;
 `;
