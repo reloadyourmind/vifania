@@ -7,22 +7,71 @@
   height: 40px;
   padding-left: 25px;
   padding-right: 25px;
-
+  color: #008DD2;
   background: #FFFFFF;
   border: 1.5px solid #008DD2;
   border-radius: 22px;
 
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 100%;
-  color: #008DD2;
-
   transition: ease-in-out 0.5s;
+
+  >* + span{
+    margin-left: 12px;
+  }
+
+  span{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+  }
 
   &:hover,
   &:focus,
   &:active{
     background: #008DD2;
     color: #FFFFFF;
+  }
+
+  &.ant-btn-link{
+    min-width: fit-content;
+    padding: 0;
+    height: auto;
+    border: none;
+
+    span {
+      color: #008DD2;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      text-decoration-line: none;
+    }
+
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+
+    &:hover,
+    &:focus,
+    &:active{
+      color: #008DD2;
+      box-shadow: none;
+
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      background-clip: unset;
+
+      span{
+        color: #008DD2;
+        box-shadow: none;
+        text-decoration-line: underline;
+
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
+      }
+    }
   }
 }

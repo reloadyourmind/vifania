@@ -2,6 +2,7 @@ import { configureMobX } from 'assets/core/mobXSettings';
 import { Router } from 'assets/core/router/Router';
 import { CalendarStore } from 'assets/stores/CalendarStore/CalendarStore';
 import { SettingsStore } from 'assets/stores/SettingsStore/SettingsStore';
+import { YouTubeApiStore } from 'assets/stores/YouTubeApiStore/YouTubeApiStore';
 import { History } from 'history';
 import { action, computed, observable } from 'mobx';
 
@@ -16,6 +17,7 @@ export class AppStoreClass {
 
         await SettingsStore.init();
         await CalendarStore.init();
+        await YouTubeApiStore.loadStreams();
 
         this.isInit = true;
     }
