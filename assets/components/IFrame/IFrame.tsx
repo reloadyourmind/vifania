@@ -15,10 +15,11 @@ export const IFrame = ({ src, ratio }: IFrameProps) => {
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            seamless
             style={{
                 aspectRatio: ratio || '16/9',
                 borderRadius: '25px',
-                backgroundColor: '#0f0f0f',
+                backgroundColor: '#2b2b2b',
             }}
         />
     );

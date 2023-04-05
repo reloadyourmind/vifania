@@ -1,10 +1,8 @@
 import { RoutePaths } from 'assets/core/router/RoutePaths';
-import { AboutPage } from 'assets/pages/AboutPage/AboutPage';
 import { CalendarPage } from 'assets/pages/CalendarPage/CalendarPage';
 import { ContactsPage } from 'assets/pages/ContactsPage/ContactsPage';
 import { IndexPage } from 'assets/pages/IndexPage/IndexPage';
 import { NewsPage } from 'assets/pages/NewsPage/NewsPage';
-import { ServicesPage } from 'assets/pages/ServicesPage/ServicesPage';
 import {
     isRouteGroup,
     RouteDefinition,
@@ -22,20 +20,20 @@ export class RouterStoreClass {
                 Component: IndexPage,
                 exact: true,
             },
-            {
-                key: RoutePaths.services,
-                path: RoutePaths.services,
-                Component: ServicesPage,
-                exact: true,
-                label: <Trans t={t} i18nKey="App.Menu.Links.Services" />,
-            },
-            {
-                key: RoutePaths.about,
-                path: RoutePaths.about,
-                Component: AboutPage,
-                exact: true,
-                label: <Trans t={t} i18nKey="App.Menu.Links.About" />,
-            },
+            // {
+            //     key: RoutePaths.services,
+            //     path: RoutePaths.services,
+            //     Component: ServicesPage,
+            //     exact: true,
+            //     label: <Trans t={t} i18nKey="App.Menu.Links.Services" />,
+            // },
+            // {
+            //     key: RoutePaths.about,
+            //     path: RoutePaths.about,
+            //     Component: AboutPage,
+            //     exact: true,
+            //     label: <Trans t={t} i18nKey="App.Menu.Links.About" />,
+            // },
             {
                 key: RoutePaths.calendar,
                 path: RoutePaths.calendar,
