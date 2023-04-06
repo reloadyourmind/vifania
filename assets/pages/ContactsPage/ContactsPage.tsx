@@ -34,11 +34,9 @@ export const ContactsPage = observer(() => {
                             </Space>
                         </StyledSpace>
                     </Col>
-                    <Col xs={24}>
-                        <MapWrapper>
-                            <Map />
-                        </MapWrapper>
-                    </Col>
+                    <StyledCol xs={24}>
+                        <Map />
+                    </StyledCol>
                 </Row>
             </ContentSection>
         </BasePage>
@@ -58,8 +56,6 @@ const StyledText = styled(Typography.Text)`
     color: #000000;
 `;
 
-const MapWrapper = styled.div`
-    display: flex;
-    height: 420px;
+const StyledCol = styled(Col)`
     margin-top: 50px;
 `;

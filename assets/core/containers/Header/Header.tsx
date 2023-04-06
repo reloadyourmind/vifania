@@ -1,6 +1,7 @@
 import { Button, Layout, Space } from 'antd';
 import { AppMenu } from 'assets/core/containers/AppMenu/AppMenu';
 import { Logo } from 'assets/core/containers/Logo';
+import { DonationDialog } from 'assets/pages/IndexPage/Dialogs/DonationDialog';
 import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
@@ -18,7 +19,12 @@ export const Header = observer(() => {
                 <AppMenu />
                 <Space direction="horizontal" size={30}>
                     {/* <LanguageSwitcher />*/}
-                    <Button type="default">
+                    <Button
+                        type="default"
+                        onClick={() => {
+                            DonationDialog.render();
+                        }}
+                    >
                         {t('Component.Header.Btn.Donate', 'Пожертвовать')}
                     </Button>
                 </Space>
