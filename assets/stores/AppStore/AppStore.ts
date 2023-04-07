@@ -17,7 +17,7 @@ export class AppStoreClass {
 
         await SettingsStore.init();
         await CalendarStore.init();
-        await YouTubeApiStore.loadStreams();
+        await YouTubeApiStore.loadList();
 
         this.isInit = true;
     }
