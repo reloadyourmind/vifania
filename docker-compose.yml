@@ -24,6 +24,7 @@ services:
       PHP_IDE_CONFIG: "serverName=Docker"
     volumes:
       - ./:/var/www/html
+      - ./devops/php-fpm/php.ini-development:/usr/local/etc/php/php.ini-development
     networks:
       - app-network
   front:
@@ -51,7 +52,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     networks:
       - app-network
-
 networks:
   app-network:
     driver: bridge
