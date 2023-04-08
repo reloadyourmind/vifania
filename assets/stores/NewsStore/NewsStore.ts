@@ -1,23 +1,20 @@
-import axios from 'axios';
+import file from 'assets/stores/NewsStore/news.json';
 import { action, computed, observable } from 'mobx';
 
-const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCZgHgDhKk4u2Xi-yhOGOK1SWUM7y5p8wk&channelId=UCRTTRs6eOR2MpzPZ2o361RA&part=snippet&type=video&eventtype=live&order=date&maxResults=4`;
-
-export class YouTubeApiStoreClass {
+export class NewsStoreClass {
     @observable data?: any;
     @observable isLoading = false;
     @observable hasError = false;
     @observable errors?: any;
 
-    @action async loadList() {
+    @action loadList() {
         this.data = undefined;
         this.hasError = false;
         this.errors = undefined;
         this.isLoading = true;
 
         try {
-            const response = await axios.get(YOUTUBE_API_URL);
-            this.data = response.data.items;
+            this.data = file;
         } catch (error) {
             this.hasError = true;
             this.errors = error;
@@ -32,4 +29,12 @@ export class YouTubeApiStoreClass {
     }
 }
 
-export const YouTubeApiStore = new YouTubeApiStoreClass();
+export const NewsStore = new NewsStoreClass();
+
+export type News = {
+    img: string;
+    title: string;
+    description: string;
+    date: string;
+    url: string;
+};

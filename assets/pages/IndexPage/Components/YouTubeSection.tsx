@@ -14,7 +14,7 @@ const store = YouTubeApiStore;
 const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@onebreath4908';
 
 export const YouTubeSection = observer(() => {
-    const [lastStream, ...otherStreams] = store.streams;
+    const [lastStream, ...otherStreams] = store.list;
 
     return (
         <ContentSection>
@@ -39,12 +39,12 @@ export const YouTubeSection = observer(() => {
                             }
                         >
                             <StyledSpace>
-                                <StiledLink>
+                                <StyledLink>
                                     {t(
                                         'Page.Index.YouTubeSection.ChannelLink',
                                         'Смотреть на канале Youtube',
                                     )}
-                                </StiledLink>
+                                </StyledLink>
                                 <RightArrowIcon />
                             </StyledSpace>
                         </Button>
@@ -81,7 +81,8 @@ const StyledSpace = styled.div`
     align-items: center;
 `;
 
-const StiledLink = styled.span`
+const StyledLink = styled.span`
     height: 16px;
+    font-size: 16px !important;
     line-height: 16px !important;
 `;
