@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { SplashScreen } from 'assets/components/SplashScreen/SplashScreen';
 import { Footer } from 'assets/core/containers/Footer/Footer';
 import { Header } from 'assets/core/containers/Header/Header';
 import { RoutesLayout } from 'assets/core/containers/RoutesLayout/RoutesLayout';
@@ -8,7 +9,7 @@ import styled from 'styled-components';
 
 export const AppLayout = observer(() => {
     if (!AppStore.started) {
-        return <div>Loading...</div>;
+        return <SplashScreen />;
     }
 
     return (

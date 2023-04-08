@@ -1,4 +1,5 @@
 import { Typography } from 'antd';
+import { ContentContainer } from 'assets/core/containers/ContentContainer/ContentContainer';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import styled from 'styled-components';
@@ -12,10 +13,10 @@ export const ContentSection: React.FC<ContentSectionProps> = observer(
     ({ children, title, backgroundColor }) => {
         return (
             <StyledSection backgroundColor={backgroundColor}>
-                <StyledContent>
+                <ContentContainer>
                     {title && <StyledTitle>{title}</StyledTitle>}
                     {children}
-                </StyledContent>
+                </ContentContainer>
             </StyledSection>
         );
     },
@@ -24,13 +25,7 @@ export const ContentSection: React.FC<ContentSectionProps> = observer(
 const StyledSection = styled.section<{ backgroundColor?: string }>`
     background-color: ${(props) => props?.backgroundColor || '#f2f2f2'};
     width: 100%;
-`;
-
-const StyledContent = styled.div`
     padding: 60px 0;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
 `;
 
 const StyledTitle = styled(Typography.Title)`

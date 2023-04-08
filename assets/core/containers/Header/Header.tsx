@@ -1,5 +1,6 @@
 import { Button, Layout, Space } from 'antd';
 import { AppMenu } from 'assets/core/containers/AppMenu/AppMenu';
+import { ContentContainer } from 'assets/core/containers/ContentContainer/ContentContainer';
 import { Logo } from 'assets/core/containers/Logo';
 import { DonationDialog } from 'assets/pages/IndexPage/Dialogs/DonationDialog';
 import { t } from 'i18next';
@@ -9,26 +10,23 @@ import styled from 'styled-components';
 export const Header = observer(() => {
     return (
         <StyledHeader>
-            <StyledSpace size={10} direction="horizontal">
-                <StyledLogo>
+            <ContentContainer>
+                <StyledSpace size={10} direction="horizontal">
                     <Logo />
-                    <StyledLogoText>
-                        {t('Component.Header.Title', 'Вифания')}
-                    </StyledLogoText>
-                </StyledLogo>
-                <AppMenu />
-                <Space direction="horizontal" size={30}>
-                    {/* <LanguageSwitcher />*/}
-                    <Button
-                        type="default"
-                        onClick={() => {
-                            DonationDialog.render();
-                        }}
-                    >
-                        {t('Component.Header.Btn.Donate', 'Пожертвовать')}
-                    </Button>
-                </Space>
-            </StyledSpace>
+                    <AppMenu />
+                    <Space direction="horizontal" size={30}>
+                        {/* <LanguageSwitcher />*/}
+                        <Button
+                            type="default"
+                            onClick={() => {
+                                DonationDialog.render();
+                            }}
+                        >
+                            {t('Component.Header.Btn.Donate', 'Пожертвовать')}
+                        </Button>
+                    </Space>
+                </StyledSpace>
+            </ContentContainer>
         </StyledHeader>
     );
 });
@@ -40,6 +38,7 @@ const StyledHeader = styled(Layout.Header)`
     display: flex;
     align-items: center;
     line-height: 36px;
+    padding: 0;
 `;
 
 const StyledSpace = styled(Space)`
@@ -47,16 +46,4 @@ const StyledSpace = styled(Space)`
     display: flex;
     justify-content: space-between;
     align-items: center;
-`;
-
-const StyledLogo = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-const StyledLogoText = styled.span`
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: -6px;
-    color: #008dd2;
 `;
