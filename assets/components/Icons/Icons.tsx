@@ -1,3 +1,4 @@
+import { ReactComponent as ArrowDownIconSvg } from 'assets/images/arrow-down.svg';
 import { ReactComponent as CloseIconSvg } from 'assets/images/close-icon.svg';
 import { ReactComponent as MapPinIconSvg } from 'assets/images/map-pin-icon.svg';
 import { ReactComponent as PhoneIconSvg } from 'assets/images/phone-icon.svg';
@@ -18,4 +19,8 @@ export const CloseIcon = () => {
 };
 export const UpArrowCircledIcon = () => {
     return <UpArrowCircledIconSvg />;
+};
+
+export const ArrowDownIcon = () => {
+    return <ArrowDownIconSvg />;
 };

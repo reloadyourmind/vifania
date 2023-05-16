@@ -1,4 +1,3 @@
-import { t } from 'i18next';
 import { action, computed, observable } from 'mobx';
 import moment, { Moment } from 'moment';
 
@@ -23,20 +22,6 @@ export class CalendarStoreClass {
 
     @computed get startWeek() {
         return moment(this.startOfWeek);
-    }
-
-    @computed get weekInterval() {
-        const interval = [
-            this.startOfWeek?.format('D'),
-            t(`Calendar.Month.${this.startOfWeek?.format('MMMM')}`),
-            '—',
-            this.endOfWeek?.format('D'),
-            t(`Calendar.Month.${this.endOfWeek?.format('MMMM')}`),
-            this.endOfWeek?.format('YYYY'),
-            t(`Calendar.Year.Short`),
-        ];
-
-        return interval.join(' ');
     }
 }
 

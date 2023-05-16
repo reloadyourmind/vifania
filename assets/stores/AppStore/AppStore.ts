@@ -25,6 +25,7 @@ export class AppStoreClass {
     @action
     reInit() {
         this.isInit = false;
+        this.init();
     }
 
     @computed get started() {

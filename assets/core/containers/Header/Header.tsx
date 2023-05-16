@@ -1,13 +1,16 @@
 import { Button, Layout, Space } from 'antd';
+import { LanguageSwitcher } from 'assets/components/LanguageSwitcher/LanguageSwitcher';
 import { AppMenu } from 'assets/core/containers/AppMenu/AppMenu';
 import { ContentContainer } from 'assets/core/containers/ContentContainer/ContentContainer';
 import { Logo } from 'assets/core/containers/Logo';
 import { DonationDialog } from 'assets/pages/IndexPage/Dialogs/DonationDialog';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 export const Header = observer(() => {
+    const { t } = useTranslation();
+
     return (
         <StyledHeader>
             <ContentContainer>
@@ -15,7 +18,7 @@ export const Header = observer(() => {
                     <Logo />
                     <AppMenu />
                     <Space direction="horizontal" size={30}>
-                        {/* <LanguageSwitcher />*/}
+                        <LanguageSwitcher />
                         <Button
                             type="default"
                             onClick={() => {

@@ -4,14 +4,16 @@ import { NewsCard } from 'assets/components/NewsCard/NewsCard';
 import { RoutePaths } from 'assets/core/router/RoutePaths';
 import { Router } from 'assets/core/router/Router';
 import { News, NewsStore } from 'assets/stores/NewsStore/NewsStore';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const store = NewsStore;
 
 export const NewsSection = observer(() => {
+    const { t } = useTranslation();
+
     useEffect(() => {
         store.loadList();
     });

@@ -1,4 +1,4 @@
-import { Layout } from 'antd';
+import { BackTop, Layout } from 'antd';
 import { SplashScreen } from 'assets/components/SplashScreen/SplashScreen';
 import { Footer } from 'assets/core/containers/Footer/Footer';
 import { Header } from 'assets/core/containers/Header/Header';
@@ -14,6 +14,7 @@ export const AppLayout = observer(() => {
 
     return (
         <StyledLayout>
+            <BackTop />
             <Header />
             <StyledContent>
                 <RoutesLayout />
@@ -26,6 +27,7 @@ export const AppLayout = observer(() => {
 const StyledContent = styled(Layout.Content)`
     background-color: #f2f2f7;
     overflow-y: auto;
+    scroll-behavior: smooth;
 `;
 
 const StyledLayout = styled(Layout)`

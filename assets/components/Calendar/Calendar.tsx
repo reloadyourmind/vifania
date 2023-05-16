@@ -2,13 +2,15 @@ import { Row, Typography } from 'antd';
 import { DayDefinition } from 'assets/components/Calendar/CalendarTypes';
 import { DayOfWeek } from 'assets/components/Calendar/DayOfWeek';
 import { CalendarStore } from 'assets/stores/CalendarStore/CalendarStore';
-import { t } from 'i18next';
+import { Moment } from 'moment';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const store = CalendarStore;
 
 export const Calendar = () => {
+    const { t } = useTranslation();
     const days: DayDefinition[] = [
         {
             name: t('Calendar.Day.Monday'),
@@ -104,10 +106,26 @@ export const Calendar = () => {
         },
     ];
 
+    const getWeekInterval = (startOfWeek?: Moment, endOfWeek?: Moment) => {
+        const interval = [
+            startOfWeek?.format('D'),
+            t(`Calendar.Month.${startOfWeek?.format('MMMM')}`),
+            '—',
+            endOfWeek?.format('D'),
+            t(`Calendar.Month.${endOfWeek?.format('MMMM')}`),
+            endOfWeek?.format('YYYY'),
+            t(`Calendar.Year.Short`),
+        ];
+
+        return interval.join(' ');
+    };
+
     return (
         <StyledWrapper>
             <StyledHeader>
-                <StyledTitle>{store.weekInterval}</StyledTitle>
+                <StyledTitle>
+                    {getWeekInterval(store.startOfWeek, store.endOfWeek)}
+                </StyledTitle>
             </StyledHeader>
             <Row wrap={false}>
                 {days.map((day) => {

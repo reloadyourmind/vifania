@@ -1,10 +1,12 @@
 import { RoutePaths } from 'assets/core/router/RoutePaths';
 import logoImg from 'assets/images/logo.svg';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Logo = () => {
+    const { t } = useTranslation();
+
     return (
         <LogoWrapper>
             <Link to={RoutePaths.index}>

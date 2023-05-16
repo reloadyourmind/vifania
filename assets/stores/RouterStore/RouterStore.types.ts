@@ -2,7 +2,7 @@ import React from 'react';
 
 export type RouteItem = {
     icon?: React.ReactNode;
-    label?: React.ReactNode;
+    label?: string;
     description?: React.ReactNode;
     Component?: any;
     key: string;
@@ -14,7 +14,7 @@ export type RouteItem = {
 
 export type RouteGroup = {
     icon?: React.ReactNode;
-    label?: React.ReactNode;
+    label?: string;
     description?: React.ReactNode;
     Component?: any;
     key: string;
