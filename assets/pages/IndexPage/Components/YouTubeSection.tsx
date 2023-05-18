@@ -5,15 +5,16 @@ import { IFrame } from 'assets/components/IFrame/IFrame';
 import { YouTubeVideoCard } from 'assets/components/VideoCard/VideoCard';
 import { YouTubeApiStore } from 'assets/stores/YouTubeApiStore/YouTubeApiStore';
 import { UrlHelper } from 'assets/utils/UrlHelper';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const store = YouTubeApiStore;
 const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@onebreath4908';
 
 export const YouTubeSection = observer(() => {
+    const { t } = useTranslation();
     const [lastStream, ...otherStreams] = store.list;
 
     return (
