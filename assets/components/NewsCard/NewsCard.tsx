@@ -2,10 +2,10 @@ import { Button } from 'antd';
 import { RightArrowIcon } from 'assets/components/Icons/Icons';
 import { News } from 'assets/stores/NewsStore/NewsStore';
 import { UrlHelper } from 'assets/utils/UrlHelper';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 type NewsCardProps = {
@@ -13,6 +13,22 @@ type NewsCardProps = {
 };
 
 export const NewsCard = observer(({ news }: NewsCardProps) => {
+    const { t } = useTranslation();
+
+    const getPublishedDate = (date: string) => {
+        const publishedDate = moment(date, 'DD/MM/YYYY');
+
+        const publishedDateString = [
+            t(`Component.NewsCard.Publishing`, 'Опубликовано'),
+            publishedDate.format('D'),
+            t(`Calendar.Month.${publishedDate.format('MMMM')}`),
+            publishedDate.format('YYYY'),
+            t(`Component.NewsCard.Year.Short`, 'г.'),
+        ];
+
+        return publishedDateString.join(' ');
+    };
+
     return (
         <StyledCard>
             <StyledImage img={news.img}>
@@ -39,20 +55,6 @@ export const NewsCard = observer(({ news }: NewsCardProps) => {
         </StyledCard>
     );
 });
-
-const getPublishedDate = (date: string) => {
-    const publishedDate = moment(date, 'DD/MM/YYYY');
-
-    const publishedDateString = [
-        t(`Component.NewsCard.Publishing`, 'Опубликовано'),
-        publishedDate.format('D'),
-        t(`Calendar.Month.${publishedDate.format('MMMM')}`),
-        publishedDate.format('YYYY'),
-        t(`Component.NewsCard.Year.Short`, 'г.'),
-    ];
-
-    return publishedDateString.join(' ');
-};
 
 const StyledCard = styled.div`
     display: flex;

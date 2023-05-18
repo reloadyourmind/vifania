@@ -7,9 +7,7 @@ import {
     isRouteGroup,
     RouteDefinition,
 } from 'assets/stores/RouterStore/RouterStore.types';
-import { t } from 'i18next';
 import { computed } from 'mobx';
-import { Trans } from 'react-i18next';
 
 export class RouterStoreClass {
     @computed private get routeDefinitions(): RouteDefinition[] {
@@ -39,21 +37,21 @@ export class RouterStoreClass {
                 path: RoutePaths.calendar,
                 Component: CalendarPage,
                 exact: true,
-                label: <Trans t={t} i18nKey="App.Menu.Links.Calendar" />,
+                label: 'App.Menu.Links.Calendar',
             },
             {
                 key: RoutePaths.news,
                 path: RoutePaths.news,
                 Component: NewsPage,
                 exact: true,
-                label: <Trans t={t} i18nKey="App.Menu.Links.News" />,
+                label: 'App.Menu.Links.News',
             },
             {
                 key: RoutePaths.contacts,
                 path: RoutePaths.contacts,
                 Component: ContactsPage,
                 exact: true,
-                label: <Trans t={t} i18nKey="App.Menu.Links.Contacts" />,
+                label: 'App.Menu.Links.Contacts',
             },
         ];
     }

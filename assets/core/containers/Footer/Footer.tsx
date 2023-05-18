@@ -1,5 +1,4 @@
-import { Button, Layout, Space } from 'antd';
-import { UpArrowCircledIcon } from 'assets/components/Icons/Icons';
+import { Layout, Space } from 'antd';
 import { AppMenu } from 'assets/core/containers/AppMenu/AppMenu';
 import { ContentContainer } from 'assets/core/containers/ContentContainer/ContentContainer';
 import { t } from 'i18next';
@@ -19,18 +18,6 @@ export const Footer = observer(() => {
                         )}
                     </StyledLogoText>
                 </StyledSpace>
-                <StyledWrapper>
-                    <Button
-                        type="text"
-                        icon={<UpArrowCircledIcon />}
-                        onClick={() => {
-                            window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth',
-                            });
-                        }}
-                    />
-                </StyledWrapper>
             </ContentContainer>
         </StyledFooter>
     );
@@ -55,14 +42,4 @@ const StyledLogoText = styled.span`
     font-size: 14px;
     line-height: 21px;
     color: rgba(255, 255, 255, 0.25);
-`;
-
-const StyledWrapper = styled.div`
-    position: absolute;
-    top: 25px;
-    right: 0;
-
-    @media (max-width: 576px) {
-        display: none;
-    }
 `;

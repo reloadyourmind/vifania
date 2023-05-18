@@ -3,11 +3,13 @@ import { BasePage } from 'assets/components/BasePage/BasePage';
 import { ContentSection } from 'assets/components/ContentSection/ContentSection';
 import { MapPinIcon, PhoneIcon } from 'assets/components/Icons/Icons';
 import { Map } from 'assets/components/Map/Map';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 export const ContactsPage = observer(() => {
+    const { t } = useTranslation();
+
     return (
         <BasePage>
             <ContentSection title={t('Page.Contacts.Title', 'Контакты')}>

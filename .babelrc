@@ -6,8 +6,8 @@
         [
             "i18next-extract",
             {
-                "locales": ["ru"],
-                "useI18nextDefaultValue": ["ru"],
+                "locales": ["ru", "en"],
+                "useI18nextDefaultValue": "ru",
                 "outputPath": "public/dist/l10n/{{ns}}/{{locale}}.json",
                 "keySeparator": null,
                 "compatibilityJSON": "v4"

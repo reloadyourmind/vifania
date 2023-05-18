@@ -1,17 +1,17 @@
 import i18n, { initInternationalization } from 'assets/core/i18n';
 import { action, computed, observable } from 'mobx';
 
-export const SUPPORTED_LOCALES = ['ru'];
+export const SUPPORTED_LOCALES = ['ru', 'en'];
 
 export class SettingsStoreClass {
     @observable currentLocale?: string;
 
-    @action async setupInternationalization() {
-        await initInternationalization({} as any);
-    }
-
     @action async init() {
         await this.setupInternationalization();
+    }
+
+    @action async setupInternationalization() {
+        await initInternationalization({} as any);
     }
 
     @action async setLocale(locale: string) {

@@ -4,6 +4,7 @@ import { RouterStore } from 'assets/stores/RouterStore/RouterStore';
 import { RouteDefinition } from 'assets/stores/RouterStore/RouterStore.types';
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { matchPath, NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,6 +13,7 @@ type AppMenuProps = {
 };
 
 export const AppMenu = observer(({ theme }: AppMenuProps) => {
+    const { t } = useTranslation();
     const location = useLocation();
     const [selectedKeys, setSelectedKeys] = useState<string[]>();
 
@@ -28,6 +30,16 @@ export const AppMenu = observer(({ theme }: AppMenuProps) => {
         setSelectedKeys(keys);
     }, [location.pathname]);
 
+    const getMenuItem = (route: RouteDefinition): ItemType => {
+        const label = <NavLink to={route.path}>{t(`${route.label}`)}</NavLink>;
+
+        return {
+            key: route.key,
+            icon: route.icon,
+            label,
+        };
+    };
+
     return (
         <StyledMenu
             theme={theme}
@@ -38,16 +50,6 @@ export const AppMenu = observer(({ theme }: AppMenuProps) => {
         />
     );
 });
-
-const getMenuItem = (route: RouteDefinition): ItemType => {
-    const label = <NavLink to={route.path}>{route.label as any}</NavLink>;
-
-    return {
-        key: route.key,
-        icon: route.icon,
-        label,
-    };
-};
 
 const StyledMenu = styled(Menu as any)`
     width: 100%;

@@ -5,11 +5,13 @@ import {
     addModalRenderer,
     ModalRendererProps,
 } from 'assets/utils/ModalRenderer';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const DonationDialogFn = observer(({ ...props }: ModalRendererProps) => {
+    const { t } = useTranslation();
+
     return (
         <Modal
             title={t(

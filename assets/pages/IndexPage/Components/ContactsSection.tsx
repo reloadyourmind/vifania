@@ -2,12 +2,14 @@ import { Col, Row, Space, Typography } from 'antd';
 import { ContentSection } from 'assets/components/ContentSection/ContentSection';
 import { MapPinIcon, PhoneIcon } from 'assets/components/Icons/Icons';
 import { Map } from 'assets/components/Map/Map';
-import { t } from 'i18next';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 export const ContactsSection = observer(() => {
+    const { t } = useTranslation();
+
     return (
         <ContentSection
             title={t('Page.Index.ContactsSection.Title', 'Контакты')}
