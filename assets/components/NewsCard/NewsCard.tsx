@@ -61,8 +61,8 @@ const StyledCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 22px;
-    padding: 25px 25px 30px;
+    gap: 20px;
+    padding: 15px 15px 20px;
     background: #ffffff;
     border: 1px solid #f2f2f7;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -80,7 +80,7 @@ const StyledImage = styled.div<{ img?: string }>`
     background-position: center;
     background-size: cover;
     overflow: hidden;
-    padding: 20px 25px;
+    padding: 15px 15px;
 `;
 
 const StyledImagTitle = styled.div`
@@ -88,24 +88,35 @@ const StyledImagTitle = styled.div`
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(15px);
     border-radius: 8px;
-    padding: 5px 15px;
+    padding: 4px 12px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 16px;
     color: #ffffff;
 `;
 
 const StyledTitle = styled.span`
     font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 20px;
+    line-height: 22px;
     color: #000000;
+    overflow: hidden;
+    height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 `;
 
 const StyledText = styled.span`
+    display: block;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
+    height: 100px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     color: #000000;
 `;
 
