@@ -20,13 +20,9 @@ class Post
     private ?string $description = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\Url(message: 'Пожалуйста, введите URL.')]
-    #[Assert\NotBlank(message: 'Пожалуйста, введите изображение профиля.')]
     private ?string $url = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\Url(message: 'Пожалуйста, введите URL.')]
-    #[Assert\NotBlank(message: 'Пожалуйста, введите изображение профиля.')]
     private ?string $thumbnail = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
