@@ -13,21 +13,13 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('emailCanonical')
             ->add('roles')
             ->add('password')
-            ->add('plainPassword')
-            ->add('passwordRequestedAt')
-            ->add('salt')
-            ->add('lastLogin')
             ->add('firstname')
             ->add('lastname')
             ->add('username')
             ->add('picture')
             ->add('enabled')
-            ->add('superAdmin')
-            ->add('confirmationToken')
-            ->add('usernameCanonical')
         ;
     }
 

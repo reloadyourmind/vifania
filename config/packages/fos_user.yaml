@@ -1,9 +1,0 @@
-fos_user:
-  db_driver: orm
-  firewall_name: main
-  user_class: App\Entity\User
-  from_email:
-    address: hello@vifania.by
-    sender_name: Team | Vifania
-  service:
-    mailer: 'App\Service\MailerService'
