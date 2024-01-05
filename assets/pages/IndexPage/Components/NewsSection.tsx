@@ -28,7 +28,7 @@ export const NewsSection = observer(() => {
             <Row gutter={[30, 50]}>
                 {news.map((item: News) => {
                     return (
-                        <Col xs={24} sm={12} key={item.url}>
+                        <Col xs={24} sm={12} key={item.id}>
                             <NewsCard news={item} />
                         </Col>
                     );
