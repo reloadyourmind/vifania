@@ -1,10 +1,32 @@
-import queryString, { ParseOptions } from 'query-string';
+import {
+    convertObjectDateValueToISOFormat,
+    convertObjectDateValueToMoment,
+} from 'assets/utils/ObjectHelper';
+import queryString, {
+    ParseOptions,
+    StringifyOptions as StringifyOptionsType,
+} from 'query-string';
 import URLParse from 'url-parse';
 
-const queryStringOptions: ParseOptions = {
+export type SearchParamsOptions = ParseOptions & {
+    parseDate?: boolean;
+};
+export type StringifyOptions = StringifyOptionsType & {
+    parseDate?: boolean;
+};
+
+const searchParamsOptions: SearchParamsOptions = {
     arrayFormat: 'bracket',
     parseNumbers: true,
     parseBooleans: true,
+    parseDate: false,
+};
+
+const stringifyOptions: StringifyOptions = {
+    parseDate: true,
+    skipEmptyString: true,
+    skipNull: true,
+    arrayFormat: 'bracket',
 };
 
 const getTargetUrl = (urlTemplate: string, params: Record<string, any>) => {
@@ -31,12 +53,31 @@ const downloadFile = (url: string, file: string) => {
     a.click();
 };
 
-const parseSearchParams = (urlSearch: string) => {
-    return queryString.parse(urlSearch, queryStringOptions);
+const parseSearchParams = (
+    urlSearch: string,
+    { parseDate, ...options } = searchParamsOptions,
+) => {
+    const queryParams = queryString.parse(urlSearch, options);
+
+    if (parseDate) {
+        return convertObjectDateValueToMoment(queryParams);
+    }
+
+    return queryParams;
 };
 
-const stringifySearchParams = (object: Record<string, any>) => {
-    return queryString.stringify(object, queryStringOptions);
+const stringifySearchParams = (
+    object: Record<string, any>,
+    { parseDate, ...options } = stringifyOptions,
+) => {
+    if (parseDate) {
+        return queryString.stringify(
+            convertObjectDateValueToISOFormat(object),
+            options,
+        );
+    }
+
+    return queryString.stringify(object, options);
 };
 
 const getUrlWithoutHost = (url: string) => {

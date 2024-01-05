@@ -2,6 +2,7 @@ import { RoutePaths } from 'assets/core/router/RoutePaths';
 import { CalendarPage } from 'assets/pages/CalendarPage/CalendarPage';
 import { ContactsPage } from 'assets/pages/ContactsPage/ContactsPage';
 import { IndexPage } from 'assets/pages/IndexPage/IndexPage';
+import { NewsDetailsPage } from 'assets/pages/NewsPage/NewsDetailsPage';
 import { NewsPage } from 'assets/pages/NewsPage/NewsPage';
 import {
     isRouteGroup,
@@ -45,6 +46,12 @@ export class RouterStoreClass {
                 Component: NewsPage,
                 exact: true,
                 label: 'App.Menu.Links.News',
+            },
+            {
+                key: RoutePaths.newsDetails,
+                path: RoutePaths.newsDetails,
+                Component: NewsDetailsPage,
+                exact: true,
             },
             {
                 key: RoutePaths.contacts,

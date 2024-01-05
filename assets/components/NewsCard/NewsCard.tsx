@@ -1,11 +1,13 @@
 import { Button } from 'antd';
 import { RightArrowIcon } from 'assets/components/Icons/Icons';
+import { EntityLinks } from 'assets/core/router/EntityLinks';
 import { News } from 'assets/stores/NewsStore/NewsStore';
 import { UrlHelper } from 'assets/utils/UrlHelper';
 import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type NewsCardProps = {
@@ -36,19 +38,14 @@ export const NewsCard = observer(({ news }: NewsCardProps) => {
             </StyledImage>
             <StyledTitle>{news.title}</StyledTitle>
             <StyledText>{news.description}</StyledText>
-            <Button
-                type="link"
-                onClick={() => {
-                    UrlHelper.openLinkInNewTab(news.url);
-                }}
-            >
+            <Button type="link">
                 <StyledSpace>
-                    <StyledLink>
+                    <Link to={EntityLinks.news.itemDetails(news.id)}>
                         {t(
                             'Component.NewsCard.OpenFullNews.Btn',
                             'Читать новость целиком',
                         )}
-                    </StyledLink>
+                    </Link>
                     <RightArrowIcon />
                 </StyledSpace>
             </Button>
@@ -124,10 +121,4 @@ const StyledSpace = styled.div`
     gap: 10px;
     display: flex;
     align-items: center;
-`;
-
-const StyledLink = styled.span`
-    height: 16px;
-    font-size: 16px !important;
-    line-height: 16px !important;
 `;
